@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Understanding Transitions</title>
+  <style>
+    body {
+      padding: 50px;
+    }
+
+    .trigger {
+      height: 200px;
+      width: 200px;
+      border: 20px solid #999;
+      background-color: #ddd;
+    }
+
+    .box {
+      height: 200px;
+      width: 200px;
+      background-color: pink;
+      transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+
+    .trigger.clicked .box {
+      transform: translate(250px, 250px) rotate(80deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="trigger">
+    <div class="box"></div>
+  </div>
+</body>
+<script>
+  var el = document.getElementsByClassName('trigger')[0];
+  el.addEventListener('click', function () {
+    if (el.classList.contains('clicked')) {
+      el.classList.remove('clicked');
+    }
+    else {
+      el.classList.add('clicked');
+    }
+  });
+</script>
+
+</html>

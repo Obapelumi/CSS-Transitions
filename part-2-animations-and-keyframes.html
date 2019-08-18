@@ -1,0 +1,67 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Animations & Keyframes</title>
+  <style>
+    body {
+      padding: 50px;
+    }
+
+    .trigger {
+      height: 200px;
+      width: 200px;
+      border: 20px solid #999;
+      background-color: #ddd;
+    }
+
+    .box {
+      height: 200px;
+      width: 200px;
+      background-color: pink;
+      display: inline-block;
+      position: relative;
+      /* animation: myFrames 2s ease-in-out 0s infinite normal forwards running; */
+      animation-name: myFrames;
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+      animation-play-state: running;
+    }
+
+    .box.paused {
+      animation-play-state: paused;
+    }
+
+    @keyframes myFrames {
+
+      0%{
+        transform: scale(0);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div class="box"></div> -->
+</body>
+
+<script>
+  var el = document.getElementsByTagName('html')[0];
+  el.addEventListener('click', function () {
+    var box = document.createElement('div');
+    box.setAttribute('class', 'box');
+    document.getElementsByTagName('body')[0].appendChild(box);
+  });
+</script>
+
+</html>
